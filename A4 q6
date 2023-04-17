@@ -1,0 +1,119 @@
+#include<stdio.h>
+
+#include<string.h>
+
+struct library{
+
+int id;
+
+char title[40];
+
+char author[20];
+
+float price;
+
+} b[100] ;
+
+int num=0;
+
+void Add(){
+
+printf("How many books' info do you want to enter? ");
+
+scanf(" %d",&num);
+
+for(int i=0;i<num;i++){
+
+printf("Enter the following information about the book:\n");
+
+printf("ID, title, author's name, price(in Tk)\n");
+
+scanf(" %d %s %s %f",&b[i].id,&b[i].title,&b[i].author,&b[i].price);
+
+}
+
+}
+
+void Disp(){
+
+printf("\tID\tName\tAuthor\tPrice(Tk)\n");
+
+for(int i=0;i<num;i++){
+
+printf("\t%d\t%s\t%s\t%f\n",b[i].id,b[i].title,b[i].author,b[i].price);
+
+}
+
+}
+
+void Count(){
+
+printf("\nNo of books avalable in the library = %d\n",num);
+
+}
+
+void List(){
+
+char str[20];
+
+printf("Enter the author's name: ");
+
+scanf("%s",str);
+
+for(int i=0;i<num;i++){
+
+if(strcmp(str,b[i].author)==0)
+
+printf("\n\t%d\t%s\t%s\t%f\n",b[i].id,b[i].title,b[i].author,b[i].price);
+
+}
+
+}
+
+int main(){
+
+int option=0;
+
+do {
+
+printf("\nWelcome to the library\nPlease Select an Option: \n");
+
+printf("-----------------------------------------------------------
+
+\n");
+
+printf("1.Add book details\n2.Display book details\n3.List all books
+
+of a given author\n4.Show total no. of books in the library.\n5.Exit\n");
+
+printf("-----------------------------------------------------------
+
+\n");
+
+scanf("%d",&option);
+
+switch(option){
+
+case 1: Add();
+
+break;
+
+case 2: Disp();
+
+break;
+
+case 3: List();
+
+break;
+
+case 4: Count();
+
+break;
+
+}
+
+}while(option != 5);
+
+return 0;
+
+}
